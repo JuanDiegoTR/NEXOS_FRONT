@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+/* Estilos generales para todo el formulario y la lista */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.inventory-list-container,
+.inventory-form-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters label {
+    margin-right: 10px;
+}
+
+.filters input {
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.inventory-table th,
+.inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.inventory-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.inventory-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}

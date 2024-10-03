@@ -1,0 +1,32 @@
+<div class="inventory-form-container">
+    <h2>Agregar Inventario</h2>
+
+    <form (ngSubmit)="saveInventory()">
+        <div class="form-group">
+            <label for="productName">Nombre del producto:</label>
+            <input id="productName" type="text" [(ngModel)]="inventory.productName" name="productName" required />
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Cantidad:</label>
+            <input id="quantity" type="number" [(ngModel)]="inventory.quantity" name="quantity" required />
+        </div>
+
+        <div class="form-group">
+            <label for="entryDate">Fecha de ingreso:</label>
+            <input id="entryDate" type="date" [(ngModel)]="inventory.entryDate" name="entryDate" required />
+        </div>
+
+        <div class="form-group">
+            <label for="userSelect">Seleccione un Usuario:</label>
+            <select id="userSelect" [(ngModel)]="inventory.userId" name="userId" required>
+                <option value="" disabled selected>Seleccione un usuario</option>
+                <option *ngFor="let usuario of users" [value]="usuario.id">
+                {{ usuario.id }} - {{ usuario.name }}
+              </option>
+            </select>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>

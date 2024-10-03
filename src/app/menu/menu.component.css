@@ -1,0 +1,31 @@
+/* General Styles for the Navbar */
+.navbar {
+    background-color: #343a40; /* Color de fondo oscuro */
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  .navbar .btn {
+    border: none; /* Remueve los bordes por defecto */
+    padding: 8px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .btn-outline-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .navbar .btn-outline-success:hover {
+    background-color: #218838; /* Color de fondo al pasar el mouse */
+    color: #ffffff;
+  }
+  
+  .navbar .btn-outline-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+  

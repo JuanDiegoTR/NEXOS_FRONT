@@ -1,0 +1,105 @@
+<div class="inventory-list-container">
+    <h2>Inventario Registrado</h2>
+
+    <!-- Filtros -->
+  <div class="filters">
+    <label for="filterName">Nombre del producto:</label>
+    <input id="filterName" type="text" [(ngModel)]="filterName" placeholder="Buscar por nombre..." />
+
+    <label for="filterDate">Fecha de ingreso:</label>
+    <input id="filterDate" type="date" [(ngModel)]="filterDate" />
+
+    <label for="filterUser">Usuario:</label>
+    <input id="filterUser" type="text" [(ngModel)]="filterUser" placeholder="Buscar por usuario..." />
+
+    <button class="btn btn-primary" (click)="filterInventories()">Buscar</button>
+    <button class="btn btn-secondary" (click)="clearFilters()">Limpiar Filtros</button>
+  </div>
+
+    <!-- Tabla de inventarios -->
+    <table class="inventory-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Fecha de Ingreso</th>
+                <th>Usuario Registrado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let inventory of filteredInventories">
+                <td>{{ inventory.productName }}</td>
+                <td>{{ inventory.quantity }}</td>
+                <td>{{ inventory.entryDate | date: 'shortDate' }}</td>
+                <td>{{ inventory.creatorUserName }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" (click)="openEditModal(inventory)">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="openDeleteModal(inventory)">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal de edición de inventario -->
+    <div *ngIf="isEditModalOpen" class="modal-container">
+        <div class="modal-content">
+            <h5>Editar Inventario</h5>
+            <form>
+                <div class="mb-3">
+                    <label for="editProductName" class="form-label">Nombre del producto</label>
+                    <input type="text" class="form-control" id="editProductName"
+                        [(ngModel)]="selectedInventory.productName" name="productName" />
+                </div>
+                <div class="mb-3">
+                    <label for="editQuantity" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="editQuantity" [(ngModel)]="selectedInventory.quantity"
+                        name="quantity" />
+                </div>
+                <div class="mb-3">
+                    <label for="editEntryDate" class="form-label">Fecha de ingreso</label>
+                    <input type="date" class="form-control" id="editEntryDate" [(ngModel)]="selectedInventory.entryDate"
+                        name="entryDate" />
+                </div>
+                <div class="form-group">
+                    <label for="userSelect">Seleccione un Usuario:</label>
+                    <select id="userSelect" [(ngModel)]="selectedInventory.userId" name="userId" required>
+                        <option value="" disabled selected>Seleccione un usuario</option>
+                        <option *ngFor="let usuario of users" [value]="usuario.id">
+                        {{ usuario.id }} - {{ usuario.name }}
+                      </option>
+                    </select>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+                <button class="btn btn-primary" (click)="updateInventory()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de eliminación -->
+    <div *ngIf="isDeleteModalOpen" class="modal-container">
+        <div class="modal-content">
+            <h5>Confirmar Eliminación</h5>
+            <div class="form-group">
+                <label for="userSelect">Seleccione su Usuario:</label>
+                <select id="userSelect" [(ngModel)]="selectedInventory.userId" name="userId" required>
+                    <option value="" disabled selected>Seleccione un usuario</option>
+                    <option *ngFor="let usuario of users" [value]="usuario.id">
+                    {{ usuario.id }} - {{ usuario.name }}
+                  </option>
+                </select>
+            </div>
+            <p>¿Estás seguro de que deseas eliminar este inventario?</p>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" (click)="closeDeleteModal()">Cancelar</button>
+                <button class="btn btn-danger" (click)="deleteInventory()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

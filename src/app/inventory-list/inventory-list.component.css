@@ -1,0 +1,85 @@
+.form-group {
+    margin-bottom: 15px;
+}
+
+.inventory-list-container {
+    padding: 20px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.inventory-table th,
+.inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.inventory-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilos generales para el modal */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    /* Asegúrate de que está por encima del contenido */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    /* Tamaño máximo de la ventana modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro */
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Asegúrate de que las acciones estén alineadas */
+.inventory-table td {
+    text-align: center;
+    /* Centrar el contenido de la celda */
+}
+
+/* Separación entre botones */
+.inventory-table .btn {
+    margin-right: 8px;
+    /* Espacio entre los botones */
+}
+
+/* Asegúrate de que el último botón no tenga margen a la derecha */
+.inventory-table .btn:last-child {
+    margin-right: 0;
+}
